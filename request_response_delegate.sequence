@@ -1,0 +1,8 @@
+Client->RabbitMQ: Publish Request
+RabbitMQ->Client: Publish Request Ack
+RabbitMQ->Service: Request
+Service->RabbitMQ: Publish Response
+RabbitMQ->Service: Publish Response Ack
+Service->RabbitMQ: Request Ack
+RabbitMQ->Client: Response
+Client->RabbitMQ: Response Ack

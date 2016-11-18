@@ -1,0 +1,14 @@
+Client->Master: Publish Request
+Master->Slave: Replicate Request
+Slave->Master: Replicate Request Ack
+Master->Client: Publish Request Ack
+Master->Service: Request
+Service->Master: Publish Response
+Master->Slave: Response Replicate
+Slave->Master: response Replicate Ack
+Master->Service: Publish Response Ack
+Service->Master: Request Ack
+Master-->Slave: Replicate Request Ack
+Master->Client: Response
+Client->Master: Response Ack
+Master-->Slave: Replicate Response Ack
