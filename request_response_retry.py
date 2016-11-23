@@ -13,6 +13,7 @@ def service(channel):
     # illustrate idempotent behaviour
     requests = {}
     channel.queue_declare(queue='service', auto_delete=True)
+    channel.basic_qos(prefetch_count=10)
     for method, properties, body in channel.consume('service', no_ack=True):
         id = properties.correlation_id
         # Notice our idempotent test may not rely on the reply_to address, since this will
